@@ -1,4 +1,4 @@
-# save! — Claude Code GitHub Sync Skill
+# save-to-github
 
 One-command GitHub sync for Claude Code. Type `/save!` to push your code.
 
@@ -12,10 +12,21 @@ One-command GitHub sync for Claude Code. Type `/save!` to push your code.
 - **Auto-create repos** — automatically creates new GitHub repos if they don't exist
 - **Auto-setup** — installs gh CLI and opens GitHub login on first use (Windows)
 - **Sensitive file protection** — skips .env, credentials, keys, etc.
+- **No git repo? No problem** — asks to initialize one if not found
+
+## Screenshots
+
+### Change Remote
+![Change Remote](images/ca8ab92ef51f1c3ae125337b44b4a781.png)
+
+### Manage Files
+![Manage Files](images/5ebfafe8ab21d218fa25191409cc688b.png)
 
 ## Install
 
 ```bash
+git clone https://github.com/ludiwangfpga/save-to-github.git
+cd save-to-github
 python install.py
 ```
 
@@ -38,11 +49,11 @@ In any Claude Code conversation, type:
 /save!
 ```
 
-### Flow
+### When changes exist
 
 1. Detects new/modified/deleted files
 2. For deleted files: asks which to remove from GitHub (remembers choices)
-3. Shows Push / Cancel / Change remote selector
+3. Shows **Push** / **Cancel** / **Change remote** selector
 4. Commits and pushes
 
 ### When nothing to sync
@@ -51,6 +62,12 @@ Shows options to:
 - **Manage files** — select and remove files from GitHub
 - **Change remote** — switch to a different repository
 - **Done** — exit
+
+### When not in a git repo
+
+Shows options to:
+- **Initialize** — create a new git repo in current directory
+- **Cancel** — abort
 
 ## File Structure
 
@@ -62,8 +79,6 @@ install.py           — Installer
 ```
 
 ## Uninstall
-
-Delete the installed files:
 
 ```bash
 rm ~/.claude/commands/save!.md

@@ -6,6 +6,14 @@ python ~/.claude/scripts/save.py --batch 2>/dev/null
 
 Handle the output based on these markers:
 
+## NOT_A_GIT_REPO
+Current directory is not a git repo. Use `AskUserQuestion` (single select):
+1. label: **Initialize** — description: "Create a new git repo here". If selected: run `git init 2>/dev/null`, then re-run `python ~/.claude/scripts/save.py --batch 2>/dev/null` and continue handling.
+2. label: **Cancel** — description: "Abort". If selected: output "Cancelled." and STOP.
+
+## NO_REMOTE
+Git repo exists but no remote configured. Use `AskUserQuestion` to ask for a GitHub URL (provide "Cancel" as an option, user types URL via Other). If user provides a URL, run `git remote add origin <url> 2>/dev/null`, then re-run `python ~/.claude/scripts/save.py --batch 2>/dev/null` and continue handling. If Cancel: output "Cancelled." and STOP.
+
 ## PENDING_DELETE
 Lines after `PENDING_DELETE:` are filenames. Use `AskUserQuestion` with `multiSelect: true` to ask which files to delete from GitHub. Include a "Keep all" option. After selection, map chosen files to `--delete` and the rest to `--keep`, then re-run:
 ```

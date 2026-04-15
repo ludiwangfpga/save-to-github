@@ -375,13 +375,14 @@ def main():
     # Main flow
     _, _, code = run(["git", "rev-parse", "--is-inside-work-tree"])
     if code != 0:
-        print("ERROR: Not a git repository.")
-        sys.exit(1)
+        print("NOT_A_GIT_REPO:")
+        print(f"DIR: {os.getcwd()}")
+        sys.exit(0)
 
     remote_url = get_remote_url()
     if not remote_url:
-        print("ERROR: No remote configured. Run: git remote add origin <url>")
-        sys.exit(1)
+        print("NO_REMOTE:")
+        sys.exit(0)
 
     branch, _, _ = run(["git", "branch", "--show-current"])
     if not branch:
