@@ -1,4 +1,4 @@
-# 🚀 save-to-github
+# 🚀 save-to-github-skill
 
 One-command GitHub sync for Claude Code. Type `/save!` and your code flies to GitHub.
 
