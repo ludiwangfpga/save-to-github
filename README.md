@@ -2,6 +2,14 @@
 
 One-command GitHub sync for Claude Code. Type `/save!` to push your code.
 
+## First-Time Setup
+
+On first use, a GitHub login window will open automatically. Copy the one-time code, press Enter to open your browser, and authorize.
+
+![GitHub Login](images/7febc35289f43c962cc555b6326dd8f5.png)
+
+You only need to do this once. After that, everything is fully automatic.
+
 ## Features
 
 - **One-click sync** — auto add, commit, and push

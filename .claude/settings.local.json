@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp C:/Users/ludiw/claudeai/scripts/save.py C:/Users/ludiw/.claude/scripts/save.py)",
+      "Bash(cp C:/Users/ludiw/claudeai/commands/save!.md \"C:/Users/ludiw/.claude/commands/save!.md\")"
+    ]
+  }
+}
